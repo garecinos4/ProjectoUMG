@@ -12,20 +12,27 @@ Contiene el codigo fuente del sistema web, contiene los modulos
 y configuración de los servicios que se conectan a mongodb.
 
 ```
-
 El sistema web se encuentra en la carpeta **app**
-* app
-  * admin     
 
-⋅⋅⋅ **Contiene la administración de la aplicación (mantenimientos)**
-... Esta separado por modulos en cada carpeta.
+```
+* admin     
 
-... La carpeta **user** se puede agregar, modificar y eliminar a los usuarios administradores o profesores.
+**Contiene la administración de la aplicación (mantenimientos)**
+Esta separado por modulos en cada carpeta.
 
-... La carpeta **building** se puede agregar edificios, modificarlos, eliminarlos y generar código QR
+La carpeta **user** se puede agregar, modificar y eliminar a los usuarios administradores o profesores.
 
-... al agregar un edificio nuevo se puede localizar en el mapa y colocar una marca que identifica la latitu y longitud.
+La carpeta **building** se puede agregar edificios, modificarlos, eliminarlos y generar código QR
 
-  * public    
+al agregar un edificio nuevo se puede localizar en el mapa y colocar una marca que identifica la latitu y longitud.
 
-⋅⋅⋅ **Contiene la búsqueda de la información**
+```
+
+```
+* public    
+
+**Contiene la búsqueda de la información**
+
+```
+
+
