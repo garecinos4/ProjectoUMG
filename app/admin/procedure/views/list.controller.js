@@ -206,6 +206,21 @@
                 }
             });
         };
+        
+      /**
+      * Crear codigo QR
+      * @param {procedure} procedure
+      */
+        self.QRgenerator = function (procedure) {
+            $('#qrcode').empty();
+            new QRCode(document.getElementById("qrcode"), "http://localhost:8080/app/basicInfo/searchInfo.html#/procedures/" + procedure.name);
+
+        };
+
+        self.print = function () {
+            window.print();
+
+        };
 
     }
 })();
