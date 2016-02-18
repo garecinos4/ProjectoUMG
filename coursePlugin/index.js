@@ -38,6 +38,17 @@ exports.register = function(server, options, next) {
             Handlers.deleteCourseHandler(server, request, reply);
         }
     });
+    
+    server.route({
+        path: base + '/courses/search/',
+        method: 'GET',
+        handler: function searchCourseHandler(request, reply) {
+            Handlers.searchCourseHandler(server, request, reply);
+        },
+        config: {
+            auth: false
+        }
+    });
 
     next();
 };

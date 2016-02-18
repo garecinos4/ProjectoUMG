@@ -1,3 +1,6 @@
+var ObjectID = require('mongodb').ObjectID;
+var Dbc = require('../searchPlugin');
+//var assert = require('assert');
 var Handlers = {};
 
 //Metodos  payload post params / query query params / params path params
@@ -99,6 +102,31 @@ Handlers.deleteProcedureHandler = function(server, request, reply) {
     });
 }
 
+Handlers.searchProcedureHandler = function (server, request, reply) {
+    var response = {};
+    var text = request.query.text;
+    var procedures = [];
+
+    Dbc.connect(function (db) {
+        var proceduresResult = [];
+        var content =  '\"' + text + '\"';
+        proceduresResult = db.collection('Procedures').find({ $text: { $search: content } });
+        proceduresResult.each(function (err, doc) {
+            //assert.equal(err, null);
+            if (doc != null) {
+                procedures.push(doc);
+            } else {
+                response = {
+                    code: 0,
+                    message: 'Busqueda Exitosa.',
+                    data: procedures
+                };
+                db.close();
+                return reply(response);
+            }
+        });
+    });
+}
 
 
 module.exports = Handlers;

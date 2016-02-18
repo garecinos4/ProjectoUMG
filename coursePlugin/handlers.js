@@ -1,3 +1,6 @@
+var ObjectID = require('mongodb').ObjectID;
+var Dbc = require('../searchPlugin');
+//var assert = require('assert');
 var Handlers = {};
 
 //Metodos  payload post params / query query params / params path params
@@ -100,6 +103,30 @@ Handlers.deleteCourseHandler = function(server, request, reply) {
     });
 }
 
+Handlers.searchCourseHandler = function (server, request, reply) {
+    var response = {};
+    var text = request.query.text;
+    var courses = [];
 
+    Dbc.connect(function (db) {
+        var coursesResult = [];
+        var content =  '\"' + text + '\"';
+        coursesResult = db.collection('Courses').find({ $text: { $search: content } });
+        coursesResult.each(function (err, doc) {
+            //assert.equal(err, null);
+            if (doc != null) {
+                courses.push(doc);
+            } else {
+                response = {
+                    code: 0,
+                    message: 'Busqueda Exitosa.',
+                    data: courses
+                };
+                db.close();
+                return reply(response);
+            }
+        });
+    });
+}
 
 module.exports = Handlers;

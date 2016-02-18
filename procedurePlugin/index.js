@@ -1,7 +1,7 @@
 var Handlers = require('./handlers');
 
 
-exports.register = function(server, options, next) {
+exports.register = function (server, options, next) {
     console.log('Procedure Plugin');
 
     var base = "/api";
@@ -36,6 +36,17 @@ exports.register = function(server, options, next) {
         method: 'DELETE',
         handler: function deleteProcedureHandler(request, reply) {
             Handlers.deleteProcedureHandler(server, request, reply);
+        }
+    });
+
+    server.route({
+        path: base + '/procedures/search/',
+        method: 'GET',
+        handler: function searchProcedureHandler(request, reply) {
+            Handlers.searchProcedureHandler(server, request, reply);
+        },
+        config: {
+            auth: false
         }
     });
 

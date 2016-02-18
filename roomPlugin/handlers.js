@@ -1,6 +1,6 @@
 var ObjectID = require('mongodb').ObjectID;
 var Dbc = require('../searchPlugin');
-var assert = require('assert');
+//var assert = require('assert');
 var Handlers = {};
 
 //Metodos  payload post params / query query params / params path params
