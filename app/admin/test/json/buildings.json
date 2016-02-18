@@ -1,0 +1,30 @@
+[
+    {
+        "_id": 124578,
+        "name": "Edificio A",
+        "description": "Edificio de oficinas administrativas",
+        "longitude": "-90.51423847675323",
+        "latitude": "14.65833993169169"
+    },
+    {
+        "_id": 1324578,
+        "name": "Edificio E",
+        "description": "Edificio de E",
+        "longitude": "-90.5125379562378",
+        "latitude": "14.658936"
+    },
+    {
+        "_id": 12451178,
+        "name": "Edificio I",
+        "description": "Edificio de Ingenieria en Sistemas",
+        "longitude": "-90.51393270492554",
+        "latitude": "14.658936"
+    },
+    {
+        "_id": 12453478,
+        "name": "Edificio O",
+        "description": "Edificio de O",
+        "longitude": "-90.513411",
+        "latitude": "14.658936"
+    }
+]

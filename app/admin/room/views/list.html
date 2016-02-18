@@ -1,0 +1,121 @@
+<div class="panel">
+    <div class="panel-body">
+        <div class="row">
+            <div class="panel-heading" id="insurance">
+                <h2>Salones</h2>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="input-group">
+                <div class="input-group-addon"><span class=" glyphicon glyphicon-filter "></span> Filtrar  </div>
+                <input class="form-control" id="inputFiltrar" type="text" ng-model="vm.filter" />
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="list-group">
+                <a href="" class="list-group-item hidden-sm hidden-xs">
+                    <div class="row">
+                        <div class="col-md-2 text-danger">Nombre</div>
+                        <div class="col-md-2 text-danger">Descripcion</div>
+                        <div class="col-md-1 text-danger">Piso</div>
+                        <div class="col-md-1 text-danger">Numero</div>
+                        <div class="col-md-2 text-danger">Tipo</div>
+                        <div class="col-md-2 text-danger">Edificio</div>
+                    </div>
+                </a>
+                <a href class="list-group-item" ng-repeat="room in vm.rooms | filter:vm.filter">
+                    <div class="row">
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Nombre</div>
+                        <div class="col-md-2 text-primary">{{room.name}}</div>
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Descripcion</div>
+                        <div class="col-md-2 text-primary">{{room.description}}</div>
+                        <div class="col-md-1 text-danger visble-sm visible-xs">Piso</div>
+                        <div class="col-md-1 text-primary">{{room.floor}}</div>
+                        <div class="col-md-1 text-danger visble-sm visible-xs">Numero</div>
+                        <div class="col-md-1 text-primary">{{room.number}}</div>
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Tipo</div>
+                        <div class="col-md-2 text-primary">{{room.type}}</div>
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Edificio</div>
+                        <div class="col-md-2 text-primary">{{vm.findBuild(room.building_id)}}</div>
+                        <div class="col-md-2 text-primary">
+                            <button class="btn btn-warning" title="Editar" ng-click="vm.editRoom(room);" data-toggle="modal" data-target="#modalEdit">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-danger" ng-click="vm.deleteRoom(room._id)" title="Eliminar">
+                                <span class="glyphicon glyphicon-erase"></span>
+                            </button>
+                            <button class="btn btn-success" ng-click="vm.QRgenerator(course)" title="Generar QR">
+                                <span class="glyphicon glyphicon-qrcode"></span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalEdit" name="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEdit" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title three-color text-center" id="modalLogger">Modificar Salón</h4>
+            </div>
+            <div class="modal-body">
+                <form name="editRoomForm" id="editRoomForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" ng-model="vm.room.name" 
+                                   id="name" name="name" >
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Descripción</label>
+                            <input type="text" class="form-control" ng-model="vm.room.description" 
+                                   id="description" name="description">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Piso</label>
+                            <input type="text" class="form-control" ng-model="vm.room.floor" 
+                                   id="floor" name="floor">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Numero</label>
+                            <input type="text" class="form-control" ng-model="vm.room.number"
+                                   id="number" name="number">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Tipo</label>
+                            <select class="form-control" ng-model="vm.room.type"
+                                    id="selectType"  name="selectType"
+                                    ng-options="type.name as type.name for type in vm.listRoomTypes"></select>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Edificio</label>
+                            <select class="form-control" ng-model="vm.room.building_id"
+                                    id="selectBuilding" name="selectBuilding" 
+                                    ng-options="building._id as building.name for building in vm.listBuildings"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="vm.cancelRoom(vm.room)" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-warning" ng-click="vm.saveRoom(vm.room)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

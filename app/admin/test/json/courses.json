@@ -1,0 +1,25 @@
+[
+    {
+        "_id": 12,
+        "name": "Fisica I",
+        "description": "Curso de Fisica basica I",
+        "user_id": 345,
+        "activities": [
+            {
+                "name": "Laboratorio Practico",
+                "number": 1,
+                "description": "Laboratorio practico de fisica",
+                "begin": "08/09/2015",
+                "end": "10/09/2015",
+                "room_id": 13
+            }
+        ],
+        "status": true,
+        "documents": [
+            {
+                "number": 1,
+                "name": "Practica.PDF"
+            }
+        ]
+    }
+]

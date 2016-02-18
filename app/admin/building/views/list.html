@@ -1,0 +1,140 @@
+<div class="panel">
+    <div class="panel-body">
+        <!--                        <div class="loader"></div>-->
+        <div class="row">
+            <div class="panel-heading" id="insurance">
+                <h2>Edificios</h2>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="input-group">
+                <div class="input-group-addon"><span class=" glyphicon glyphicon-filter "></span> Filtrar </div>
+                <input class="form-control" id="inputFiltrar" type="text" ng-model="vm.filter" />
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="list-group">
+
+                <a href="" class="list-group-item hidden-sm hidden-xs">
+                    <div class="row">
+                        <div class="col-md-2 text-danger">Nombre</div>
+                        <div class="col-md-2 text-danger">Descripcion</div>
+                        <div class="col-md-2 text-danger">Longitud</div>
+                        <div class="col-md-2 text-danger">Latitud</div>
+                    </div>
+                </a>
+                <a href class="list-group-item" ng-repeat="building in vm.buildings | filter:vm.filter">
+                    <div class="row">
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Nombre</div>
+                        <div class="col-md-2 text-primary">{{building.name}}</div>
+
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Descripcion</div>
+                        <div class="col-md-2 text-primary">{{building.description}}</div>
+
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Longitud</div>
+                        <div class="col-md-2 text-primary">{{building.longitude}}</div>
+
+                        <div class="col-md-2 text-danger visble-sm visible-xs">Latitud</div>
+                        <div class="col-md-2 text-primary">{{building.latitude}}</div>
+
+                        <div class="col-md-3 text-primary">
+                            <button class="btn btn-warning" title="edit" ng-click="vm.editBuilding(building)" data-toggle="modal" data-target="#modalEdit">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-danger" ng-click="vm.deleteBuilding(building._id)" title="delete">
+                                <span class="glyphicon glyphicon-erase"></span>
+                            </button>
+                            <button class="btn btn-success" ng-click="vm.QRgenerator(building)" title="Generar QR" data-toggle="modal" data-target="#modalQRcode">
+                                <span class="glyphicon glyphicon-qrcode"></span>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEdit" name="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEdit" data-backdrop="static"
+data-keyboard="false">
+    <div class="modal-lg center-block" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title three-color text-center" id="modalLogger">Modificar Edificio</h4>
+            </div>
+            <div class="modal-body">
+                <form name="editBuildingForm" id="editBuildingForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" ng-change="vm.onChange()" ng-model="vm.building.name" id="name" name="name">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Descripción</label>
+                            <input type="text" class="form-control" ng-model="vm.building.description" id="description" name="description">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Longitud</label>
+                            <input type="text" class="form-control" ng-change="vm.onChange()" ng-model="vm.building.longitude" id="longitude" name="longitude">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Latitud</label>
+                            <input type="text" class="form-control" ng-change="vm.onChange()" ng-model="vm.building.latitude" id="latitude" name="latitude">
+                        </div>
+                    </div>
+                </form>
+                <div id="map-canvas" name="map-canvas" style="height: 390px; max-width: 870px; margin: 0; padding: 5px;" class="container"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="vm.cancelBuilding(vm.building._id)" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-warning" ng-click="vm.saveBuilding(vm.building)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalQRcode" name="modalQRcode" tabindex="-1" role="dialog" aria-labelledby="modalQRcode" data-backdrop="static"
+data-keyboard="false">
+    <div class="modal-lg center-block" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title three-color text-center" id="modalLogger">Codigo de Edificio Generado</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                     <div class="col-md-offset-4" id="qrcode" name="qrcode"> </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-warning" ng-click="vm.print()">Imprimir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #qrcode * {
+            visibility: visible;
+            width: 100%;
+            height: 200%;
+        }
+        @page {
+            margin: 0;
+        }
+    }
+</style>

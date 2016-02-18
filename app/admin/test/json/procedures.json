@@ -1,0 +1,37 @@
+[{
+    "_id": 123,
+    "name": "Inscripción",
+    "description": "Inscripción de primer ingreso",
+    "status": true,
+    "steps": [{
+        "number": 1,
+        "name": "Entregar Papeleria",
+        "description": "Entregar papeleria Inscripción",
+        "room_id": 12,
+        "building_id": 124578
+    }, {
+        "number": 2,
+        "name": "Pagar Boleta ",
+        "description": "Pagar Boleta Inscripción",
+        "room_id": 13,
+        "building_id": 1324578
+    }]
+}, {
+    "_id": 345,
+    "name": "Asignacion ",
+    "description": "Asignacion de primer ingreso",
+    "status": false,
+    "steps": [{
+        "number": 1,
+        "name": "Entregar Papeleria Asignacion",
+        "description": "Entregar papeleria Asignacion",
+        "room_id": 303,
+        "building_id": 123
+    }, {
+        "number": 2,
+        "name": "Entregar Papeleria Asignacion",
+        "description": "Entregar papeleria Asignacion",
+        "room_id": 301,
+        "building_id": 123
+    }]
+}]

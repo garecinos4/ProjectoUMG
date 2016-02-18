@@ -1,0 +1,58 @@
+<form name="form1">
+    <div class="panel">
+        <div>
+            <div class="panel-heading" id="insurance">
+                <h2>Edificio</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" ng-change="vm.onChange()" ng-model="vm.building.name"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="description" class="control-label">Descripcion</label>
+                            <input type="text" class="form-control" id="description" name="description" ng-model="vm.building.description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="longitude" class="control-label">Longitud</label>
+                            <input type="text" class="form-control" id="longitude" name="longitude" ng-change="vm.onChange()" ng-model="vm.building.longitude" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="latitude" class="control-label">Latitud</label>
+                            <input type="text" class="form-control" id="latitude" name="latitude"  ng-change="vm.onChange()" ng-model="vm.building.latitude" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div id="map-canvas" name="map-canvas" style="height: 390px; max-width: 1000px; margin: 0; padding: 5px;" class="container"></div>
+</br>
+</br>
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-2 col-md-offset-8">
+                        <button class="btn btn-primary" ng-click="vm.createBuilding()" ng-hide="showMessage">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            </br>
+        </div>
+    </div>
+</footer>

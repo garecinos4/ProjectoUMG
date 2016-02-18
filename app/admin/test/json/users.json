@@ -1,0 +1,37 @@
+[{
+    "_id": 121,
+    "name": "Gabriela Recinos",
+    "email": "garecinos@gmail.com",
+    "password": "1234",
+    "role": {
+        "role_name": "Administrador",
+        "permissions": [
+            "write", "read", "remove"
+        ]
+    }
+
+}, {
+    "_id": 345,
+    "name": "Alejandra Recinos",
+    "email": "garecinos@gmail.com",
+    "password": "1234",
+    "role": {
+        "role_name": "Catedratico",
+        "permissions": [
+            "write", "read", "remove"
+        ]
+    }
+
+}, {
+    "_id": 67867,
+    "name": "Gabriela Arevalo",
+    "email": "garecinos@gmail.com",
+    "password": "1234",
+    "role": {
+        "role_name": "Administrador",
+        "permissions": [
+            "write", "read", "remove"
+        ]
+    }
+
+}]

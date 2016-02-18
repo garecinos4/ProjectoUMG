@@ -1,0 +1,39 @@
+[
+    
+    {
+        "_id": 13,
+        "name": "Laboratorio E",
+        "description": "Salon de Fisica",
+        "floor": "3",
+        "number": "320",
+        "type": "Salon de Clase",
+        "building_id": 1324578
+    },
+    {
+        "_id": 12,
+        "name": "Laboratorio A",
+        "description": "Salon de Electronica",
+        "floor": "3",
+        "number": "320",
+        "type": "Salon de Clase",
+        "building_id": 124578
+    },
+    {
+        "_id": 12,
+        "name": "Laboratorio I",
+        "description": "Laboratorio de Computación",
+        "floor": "3",
+        "number": "320",
+        "type": "Salon de Clase",
+        "building_id": 1324578
+    },
+     {
+        "_id": 10,
+        "name": "Laboratorio O",
+        "description": "Laboratorio de Operaciones",
+        "floor": "2",
+        "number": "220",
+        "type": "Salon de Clase",
+        "building_id": 124578
+    }
+]

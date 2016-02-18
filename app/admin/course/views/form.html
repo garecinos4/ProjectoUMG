@@ -1,0 +1,72 @@
+<script>
+    $(function () {
+        $('#toggleStatus').bootstrapToggle();
+    })
+</script>
+
+<form name="form1">
+    <div class="panel">
+        </br>
+        </br>
+        <div>
+            <div class="panel-heading" id="insurance">
+                <h2>Curso</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="status" class="control-label">Estado:</label>
+                            <br>
+                            <input type="checkbox" id="toggleStatus" name="toggleStatus" 
+                                   checked data-toggle="toggle" 
+                                   data-on="Activado" data-off="Desactivado" 
+                                   data-onstyle="success" data-offstyle="danger">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" ng-model="vm.course.name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="description" class="control-label">Descripcion</label>
+                            <input type="text" class="form-control" id="description" name="description" ng-model="vm.course.description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors-select>
+                        <label for="userId" class="control-label">Profesor:</label>
+                        <select class="form-control" id="selectUser" name="selectUser"
+                         ng-model="vm.course.user_id" ng-options="user._id as user.name for user in vm.listUsers">
+                            <option value="" selected disabled>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</br>
+</br>
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-2 col-md-offset-8">
+                        <button class="btn btn-primary" ng-click="vm.createCourse()">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            </br>
+        </div>
+    </div>
+</footer>

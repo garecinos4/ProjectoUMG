@@ -1,0 +1,72 @@
+<form name="form1">
+    <div class="panel">
+        </br>
+        </br>
+        <div>
+            <div class="panel-heading" id="insurance">
+                <h2>Salón</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors>
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" ng-model="vm.room.name" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="description" class="control-label">Descripcion</label>
+                            <input type="text" class="form-control" id="description" name="description" ng-model="vm.room.description" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors>
+                        <div class="form-group">
+                            <label for="floor" class="control-label">Piso</label>
+                            <input type="text" class="form-control" id="floor" name="floor" ng-model="vm.room.floor" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3" show-errors>
+                        <div class="form-group">
+                            <label for="number" class="control-label">Numero</label>
+                            <input type="text" class="form-control" id="number" name="number" ng-model="vm.room.number" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3" show-errors-select>
+                        <label for="selectType" class="control-label">Tipo:</label>
+                        <select class="form-control" ng-model="vm.room.type" id="selectType" name="selectType"
+                                ng-options="type.name as type.name for type in vm.listRoomTypes">
+                            <option value="" selected disabled>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors-select>
+                        <label for="buildingId" class="control-label">Edificio:</label>
+                        <select class="form-control" id="selectBuilding" 
+                        name="selectBuilding" ng-model="vm.room.building_id" 
+                        ng-options="building._id as building.name for building in vm.listBuildings">
+                            <option value="" selected disabled>Seleccionar</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-2 col-md-offset-8">
+                        <button class="btn btn-primary" ng-click="vm.createRoom()">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            </br>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,89 @@
+<form name="form1">
+    <div class="panel">
+        </br>
+        </br>
+        <div>
+            <div class="panel-heading" id="insurance">
+                <h2>Datos del Usuario</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors>
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" ng-model="vm.user.name"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="email" class="control-label">Correo Electronico</label>
+                            <input type="text" class="form-control" id="email" name="email" ng-model="vm.user.email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" ng-model="vm.user.password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3" show-errors-select>
+                        <label for="userType" class="control-label">Rol</label>
+                        <select class="form-control" id="userType" name="userType" ng-model="vm.user.role.role_name">
+                            <option value="" selected disabled>Seleccionar</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Catedratico">Catedratico</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-heading" id="permisions">
+                        <h3>Permisos </h3>
+                    </div>
+                    </br>
+                    <div class="list-group">
+                        <a href="" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4 text-primary">Editar <i class="fa fa-scissors"></i></div>
+                                <div class="col-md-4" ng-show="vm.user.role.role_name"><i class="fa fa-check fa-2x"></i></div>
+                            </div>
+                        </a>
+                        <a href="" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4 text-primary">Visualizar <i class="fa fa-eye"></i></div>
+                                <div class="col-md-4" ng-show="vm.user.role.role_name"><i class="fa fa-check fa-2x"></i></div>
+                            </div>
+                        </a>
+                        <a href="" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4 text-primary">Eliminar <i class="fa fa-eraser"></i></div>
+                                <div class="col-md-1" ng-show="vm.user.role.role_name === 'Administrador'"><i class="fa fa-check fa-2x"></i></div>
+                                <div class="col-md-1" ng-show="vm.user.role.role_name === 'Catedratico'"><i class="fa fa-times fa-2x"></i></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</br>
+</br>
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-2 col-md-offset-8">
+                        <button class="btn btn-primary" ng-click="vm.createUser()" ng-hide="showMessage">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            </br>
+        </div>
+    </div>
+</footer>

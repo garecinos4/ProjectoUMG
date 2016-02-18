@@ -1,0 +1,17 @@
+{
+  "name": "umg-services",
+  "version": "1.0.0",
+  "description": "umg services",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Gabriela Alejandra Recinos Arevalo",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^8.8.1",
+    "hapi-auth-cookie": "^3.1.0",
+    "hapi-mongo-models": "^2.2.0",
+    "mongodb": "^2.0.45"
+  }
+}

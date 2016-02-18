@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Gabriela Alejandra Recinos Arevalo">
+    <title>UMG</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom CSS -->
+    <link href="/assets/css/colors.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/freelancer.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/loader.css" rel="stylesheet" type="text/css" />
+    <!-- Others -->
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/sweetalert.css" rel="stylesheet"/>
+</head>
+
+<body id="page-top" class="index" ng-app="app" ng-controller="Controller as vm">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="pageTo">
+                    <img src="/assets/img/profile04.png" class="img-responsive" />
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                   <li class="page-scroll">
+                        <a ng-click="vm.goto('browse');">Buscar</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#login" data-toggle="modal" data-target="#modalLogin">Iniciar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="/assets/img/main-icon03.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">UMG </span>
+                        <hr class="star-light">
+                        <span class="skills">Busca las actividades de tus clases, </span>
+                        <span class="skills">Busca la ubicacion que necesites, </span>
+                        <span class="skills">Busca el procedimiento y los pasos que necesites</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Browse Section -->
+    <section  id="browse">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center  three-color">
+                    <h2>¿Que Buscar?</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row three-color">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Es una pagina web que te ayudará a realizar busquedas interactivas
+                        <br>Para la Facultad de Ingenieria en Sistemas.</p>
+                </div>
+                <div class="col-lg-6">
+                    <p>¿Donde esta la facultad de Ingenieria en Sistemas?</p>
+                    <p>¿Donde esta la oficina para inscripciones?</p>
+                    <p>¿Cual es el procedimiento para inscripciones?</p>
+                    <p>¿Cual es el procedimiento para asignaciones?</p>
+                    <p>¿Que actividad tiene planificada mi clase?</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center three-color">
+                    <a href="/app/dashboard.html" class="btn btn-lg btn-outline">
+                        <i class="fa fa-search-plus"></i> Buscar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Modal -->
+    <div  class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title three-color text-center" id="modalLogger">Inicio de Sesion</h4>
+                    <hr class="star-primary">
+                </div>
+                <div class="modal-body">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <!--                        <div class="loader"></div>-->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Correo Electronico</label>
+                                <input type="email" class="form-control" placeholder="Correo" ng-model="vm.data.email" id="email" required data-validation-required-message="Por favor ingrese su correo electronico.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Contraseña</label>
+                                <input type="password" class="form-control" placeholder="Contraseña" ng-model="vm.data.password" id="password" required data-validation-required-message="Por favor ingrese su contraseña."
+                                 ng-keypress="($event.which === 13)?vm.login():0">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="text-center  three-color" data-dismiss="modal" data-toggle="modal" data-target="#modalRecover">
+                        Olvide mi contraseña
+                    </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning three-bg-color three-border-color" ng-click="vm.login()">Iniciar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title three-color text-center" id="modalLogger">Recuperar Contraseña</h4>
+                    <hr class="star-primary">
+                </div>
+                <div class="modal-body">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Correo Electronico</label>
+                                <input type="email" class="form-control" placeholder="Correo" ng-model="vm.user" id="email"
+                                 required data-validation-required-message="Por favor ingrese su correo electronico.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning three-bg-color three-border-color" ng-click="vm.recoverPassword()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center img-responsive">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-6">
+                        <h3>Contacto</h3>
+                        <p>3a. Avenida 9-00 zona 2,
+                            <br>Interior Finca El Zapote,
+                            <br>Ciudad de Guatemala,
+                            <br>Guatemala, C.A.
+                            <br>PBX: (502) 2411-1800
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-6">
+                        <h3>Visitamos en</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://facebook.com/u.marianogalvez" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/marianogalvez" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://www.linkedin.com/edu/school?id=12870&trk=tyah&trkInfo=tarId%3A1423093051405%2Ctas%3Auniversidad%20mariano%20%2Cidx%3A3-1-5" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://www.umg.edu.gt/" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" ng-click="vm.goto('pageTo');">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/lib/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="/assets/lib/jquery.easing.min.js"></script>
+    <script src="/assets/lib/classie.js"></script>
+    <script src="/assets/lib/cbpAnimatedHeader.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="/assets/lib/jqBootstrapValidation.js"></script>
+    <script src="/assets/lib/contact_me.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/assets/lib/freelancer.js"></script>
+    <script src="/assets/lib/sweetalert.min.js"></script>
+    <!-- Custom Angular -->
+    <script src="/assets/lib/angular.js"></script>
+    <script src="/assets/lib/angular-modules/angular-route.min.js"></script>
+    <script src="/assets/lib/angular-modules/angular-resource.min.js"></script>
+    <!-- Custom Apps -->
+    <script src="/app/app.js"></script>
+    <script src="/app/controller.js"></script>
+    <script src="/app/services.js"></script>
+</body>
+
+</html>
