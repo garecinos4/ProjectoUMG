@@ -130,7 +130,7 @@
                 end: '',
                 room_id: ''
             };
-            if(!self.course.activities){
+            if (!self.course.activities) {
                 self.course.activities = [];
             }
             self.course.activities.push(self.inserted);
@@ -153,10 +153,10 @@
                 });
         };
 
-         /** 
-        * Cancela los cambios realizados, 
-        * vuelve a cargar la lista de cursos
-        */
+        /** 
+       * Cancela los cambios realizados, 
+       * vuelve a cargar la lista de cursos
+       */
         self.cancelCourse = function () {
             getCourses();
         };
@@ -200,6 +200,23 @@
                 }
             });
         };
+        
+        /**
+       * Crear codigo QR
+       * @param {course} course
+       */
+        self.QRgenerator = function (course) {
+            $('#qrcode').empty();
+            new QRCode(document.getElementById("qrcode"), "http://localhost:8080/app/basicInfo/searchInfo.html#/courses/" + course.name);
+
+        };
+
+        self.print = function () {
+            window.print();
+
+        };
+
+
 
     }
 })();
