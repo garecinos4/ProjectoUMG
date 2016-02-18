@@ -3,8 +3,8 @@
     angular.module('app', [
         'ngRoute',
         'app.routeConfig',
-        'app.publicController',
-        'app.publicServices'
+        'app.basicController',
+        'app.basicServices'
     ]);
 
 })();

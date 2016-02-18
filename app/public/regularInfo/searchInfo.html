@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UMG</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!--Font awesome Fonts -->
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/timeLine.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/sweetalert.css" rel="stylesheet" />
+</head>
+
+<body id="page-top" class="index" ng-app="app" ng-controller="BasicController as vm">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#browse">
+                        UMG
+                    </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a href="/app/dashboard.html">Regresar</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- section -->
+    <section ng-view>
+        
+    </section>
+    <!-- jQuery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/lib/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="/assets/lib/freelancer.js"></script>
+    <script src="/assets/lib/sweetalert.min.js"></script>
+    <!-- Custom Angular -->
+    <script src="/assets/lib/angular.js"></script>
+    <script src="/assets/lib/angular-modules/angular-route.min.js"></script>
+    <script src="/assets/lib/angular-modules/angular-resource.min.js"></script>
+    <!-- Custom Apps -->
+    <script src="/app/regularInfo/route-config.js"></script>
+    <script src="/app/regularInfo/controller.js"></script>
+    <script src="/app/regularInfo/services.js"></script>
+    <script src="/app/regularInfo/app.js"></script>
+    
+    <script>
+        $(function () {
+            $('.checkbox input:checkbox').click(function() {
+                $('.checkbox input:checkbox').not(this).prop('checked', false);
+            });
+        })
+    </script>
+</body>
+
+</html>

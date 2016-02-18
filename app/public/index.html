@@ -17,7 +17,7 @@
     <link href="/assets/css/loader.css" rel="stylesheet" type="text/css" />
     <!-- Others -->
     <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/css/sweetalert.css" rel="stylesheet"/>
+    <link href="/assets/css/sweetalert.css" rel="stylesheet" />
 </head>
 
 <body id="page-top" class="index" ng-app="app" ng-controller="Controller as vm">
@@ -39,7 +39,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                   <li class="page-scroll">
+                    <li class="page-scroll">
                         <a ng-click="vm.goto('browse');">Buscar</a>
                     </li>
                     <li class="page-scroll">
@@ -68,9 +68,9 @@
             </div>
         </div>
     </header>
-    
+
     <!-- Browse Section -->
-    <section  id="browse">
+    <section id="browse">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center  three-color">
@@ -98,10 +98,11 @@
             </div>
         </div>
     </section>
-    
-    
+
+
     <!-- Modal -->
-    <div  class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,7 +123,7 @@
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Contraseña</label>
                                 <input type="password" class="form-control" placeholder="Contraseña" ng-model="vm.data.password" id="password" required data-validation-required-message="Por favor ingrese su contraseña."
-                                 ng-keypress="($event.which === 13)?vm.login():0">
+                                ng-keypress="($event.which === 13)?vm.login():0">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -138,8 +139,9 @@
             </div>
         </div>
     </div>
-    
-    <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+
+    <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -151,8 +153,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Correo Electronico</label>
-                                <input type="email" class="form-control" placeholder="Correo" ng-model="vm.user" id="email"
-                                 required data-validation-required-message="Por favor ingrese su correo electronico.">
+                                <input type="email" class="form-control" placeholder="Correo" ng-model="vm.user" id="email" required data-validation-required-message="Por favor ingrese su correo electronico.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -165,7 +166,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer class="text-center img-responsive">
         <div class="footer-above">
@@ -193,7 +194,8 @@
                                 <a href="http://twitter.com/marianogalvez" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="http://www.linkedin.com/edu/school?id=12870&trk=tyah&trkInfo=tarId%3A1423093051405%2Ctas%3Auniversidad%20mariano%20%2Cidx%3A3-1-5" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                <a href="http://www.linkedin.com/edu/school?id=12870&trk=tyah&trkInfo=tarId%3A1423093051405%2Ctas%3Auniversidad%20mariano%20%2Cidx%3A3-1-5"
+                                class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
                             </li>
                             <li>
                                 <a href="http://www.umg.edu.gt/" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
