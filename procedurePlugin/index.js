@@ -12,6 +12,9 @@ exports.register = function (server, options, next) {
         method: 'GET',
         handler: function showProcedureHandler(request, reply) {
             Handlers.showProcedureHandler(server, request, reply);
+        },
+        config: {
+            auth: false
         }
     });
 

@@ -12,6 +12,9 @@ exports.register = function(server, options, next) {
         method: 'GET',
         handler: function showCourseHandler(request, reply) {
             Handlers.showCourseHandler(server, request, reply);
+        },
+        config: {
+            auth: false
         }
     });
 
