@@ -12,7 +12,7 @@
         };
 
         function login(data) {
-            return $http.post('api/login/', data)
+            return $http.post('/api/login/', data)
                 .then(loginOK)
                 .catch(loginFailed);
 

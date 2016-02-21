@@ -22,7 +22,7 @@
         };
 
         function getBuilding(id) {
-            return $http.get('../../api/buildings/?id=' + id)
+            return $http.get('/api/buildings/?id=' + id)
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -36,7 +36,7 @@
         }
 
         function getBuildings() {
-            return $http.get('../../api/buildings/')
+            return $http.get('/api/buildings/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -50,7 +50,7 @@
         }
 
         function getRooms() {
-            return $http.get('../../api/rooms/')
+            return $http.get('/api/rooms/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -65,7 +65,7 @@
 
         function getRoomTypes() {
             //return $http.get('/app/test/json/procedures.json')
-            return $http.get('../test/json/roomTypes.json')
+            return $http.get('/admin/test/json/roomTypes.json')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -79,7 +79,7 @@
         }
 
         function getProcedures() {
-            return $http.get('../../api/procedures/')
+            return $http.get('/api/procedures/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -93,7 +93,7 @@
         }
         
         function getUsers() {
-            return $http.get('../../api/users/')
+            return $http.get('/api/users/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -107,7 +107,7 @@
         }
         
         function getCourses() {
-            return $http.get('../../api/courses/')
+            return $http.get('/api/courses/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -121,7 +121,7 @@
         }
 
         function login(data) {
-            return $http.post('api/login/', data)
+            return $http.post('/api/login/', data)
                 .then(loginOK)
                 .catch(loginFailed);
 
@@ -149,7 +149,7 @@
         }
         
         function findBasicInfo(service, text) {
-            return $http.get('../../api/'+ service +'/search/', { params: { text: text } })
+            return $http.get('/api/'+ service +'/search/', { params: { text: text } })
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 

@@ -11,7 +11,7 @@
         };
 
         function findBasicInfo(service, text) {
-            return $http.get('../../api/' + service + '/search/', { params: { text: text } })
+            return $http.get('/api/' + service + '/search/', { params: { text: text } })
                 .then(getResponseOK)
                 .catch(getResponseFailed);
             function getResponseOK(response) {

@@ -16,7 +16,7 @@
         self.resultList = [];
 
         if ($routeParams.type) {
-            console.log("PARAMS" + $routeParams.type + " and " + $routeParams.text);
+            //console.log("PARAMS" + $routeParams.type + " and " + $routeParams.text);
             findInfo();
         }
 
