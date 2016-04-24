@@ -36,7 +36,7 @@ var plugin = {
 //resgistrar plugins
 server.register(plugin, function (err) {
     if (err) {
-        console.log('Failed loading plugin');
+        console.log('Failed loading plugin' + err);
     }
 });
 

@@ -13,26 +13,18 @@
         self.showError = false;
         self.showResult = false;
         self.resultList = [];
-        self.building ={};
+        self.building = {};
 
-        self.login = function () {
-            console.log('HOLA');
-            if (self.data.email && self.data.password) {
-                return MainService.login(self.data)
-                    .then(function (result) {
-                        if (result && result.code === 0) {
-                            console.log("SE INICIO SESION");
-                            window.location.href = "/admin/dashboard.html";
-                        } else {
-                            console.log("NO SE PUDO INICIAR SESION");
-                            swal("ERROR!!!", result.message, "error");
-                        }
-                    });
-            } else {
-                swal("Debe ingresar correo y contraseña");
-            }
+        getInfo();
 
-        };
+        function getInfo() {
+            return MainService.getProfile()
+                .then(function (result) {
+                    if (result) {
+                        self.info = result;
+                    }
+                });
+        }
 
         self.logout = function () {
             return MainService.logout('api/logout/')

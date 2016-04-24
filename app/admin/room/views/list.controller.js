@@ -147,21 +147,5 @@
             });
         };
 
-        /**
-         * Crear codigo QR
-         * @param {room} room
-         */
-        self.QRgenerator = function (room) {
-            $('#qrcode').empty();
-            new QRCode(document.getElementById("qrcode"), "http://localhost:8080/app/basicInfo/searchInfo.html#/rooms/" + room.name);
-
-        };
-
-        self.print = function () {
-            window.print();
-
-        };
-
-
     }
 })();

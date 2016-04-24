@@ -1,55 +1,55 @@
-(function (){
+(function () {
     angular
-            .module('app.service', [])
-            .factory('BuildingServices', BuildingServices);
-   
+        .module('app.service', [])
+        .factory('BuildingServices', BuildingServices);
+
     BuildingServices.$inject = ['$http'];
-    
-    
-    function BuildingServices($http){
-        return{
+    var server = 'http://104.236.120.91/api/';
+
+    function BuildingServices($http) {
+        return {
             createBuilding: createBuilding,
             updateBuilding: updateBuilding,
             deleteBuilding: deleteBuilding
         };
-        
-        function createBuilding(data){
-            return $http.post('/api/buildings/', data)
-                    .then(getResponseOK)
-                    .catch(getResponseFailed);
-            function getResponseOK(response){
+
+        function createBuilding(data) {
+            return $http.post(server + 'buildings/', data)
+                .then(getResponseOK)
+                .catch(getResponseFailed);
+            function getResponseOK(response) {
                 return response.data;
             }
-            function getResponseFailed(error){
+            function getResponseFailed(error) {
                 console.log('XHR Failed for get buildings.' + error.data);
             }
         }
 
-        function updateBuilding(data){
-            return $http.put('/api/buildings/' + data._id, data)
-                    .then(getResponseOK)
-                    .catch(getResponseFailed);
-            function getResponseOK(response){
+        function updateBuilding(data) {
+            return $http.put(server + 'buildings/' + data._id, data)
+                .then(getResponseOK)
+                .catch(getResponseFailed);
+            function getResponseOK(response) {
                 return response.data;
             }
-            function getResponseFailed(error){
+            function getResponseFailed(error) {
                 console.log('XHR Failed for get buildings.' + error.data);
             }
         }
 
-        function deleteBuilding(id){
-            return $http.delete('/api/buildings/' + id)
-                    .then(getResponseOK)
-                    .catch(getResponseFailed);
-            function getResponseOK(response){
+        function deleteBuilding(id) {
+            return $http.delete(server + 'buildings/' + id)
+                .then(getResponseOK)
+                .catch(getResponseFailed);
+            function getResponseOK(response) {
                 return response.data;
             }
-            function getResponseFailed(error){
+            function getResponseFailed(error) {
                 console.log('XHR Failed for get buildings.' + error.data);
             }
         }
-        
+
     }
-    
-   
+
+
 })();

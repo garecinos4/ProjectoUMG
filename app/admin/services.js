@@ -1,15 +1,16 @@
-(function() {
+(function () {
     angular.module('app.mainServices', [])
         .factory('MainService', MainService);
 
     MainService.$inject = ['$http'];
 
     function MainService($http) {
+        var server = '/api/';
         var data = {};
         var service;
-        
+
         return {
-            
+
             logout: logout,
             getBuildings: getBuildings,
             getBuilding: getBuilding,
@@ -18,11 +19,26 @@
             getProcedures: getProcedures,
             getUsers: getUsers,
             getCourses: getCourses,
-            findBasicInfo: findBasicInfo
+            findBasicInfo: findBasicInfo,
+            getProfile: getProfile
         };
 
+        function getProfile() {
+            return $http.get('/profile')
+                .then(getResponseOK)
+                .catch(getResponseFailed);
+
+            function getResponseOK(response) {
+                return response.data;
+            }
+
+            function getResponseFailed(error) {
+                console.log('XHR Failed for get profile.' + error.data);
+            }
+        }
+
         function getBuilding(id) {
-            return $http.get('/api/buildings/?id=' + id)
+            return $http.get(server + 'buildings/?id=' + id)
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -36,7 +52,7 @@
         }
 
         function getBuildings() {
-            return $http.get('/api/buildings/')
+            return $http.get(server + 'buildings/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -50,7 +66,7 @@
         }
 
         function getRooms() {
-            return $http.get('/api/rooms/')
+            return $http.get(server + 'rooms/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -64,8 +80,7 @@
         }
 
         function getRoomTypes() {
-            //return $http.get('/app/test/json/procedures.json')
-            return $http.get('/admin/test/json/roomTypes.json')
+            return $http.get('../test/json/roomTypes.json')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -79,7 +94,7 @@
         }
 
         function getProcedures() {
-            return $http.get('/api/procedures/')
+            return $http.get(server + 'procedures/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -91,9 +106,9 @@
                 console.log('XHR Failed for get procedures.' + error.data);
             }
         }
-        
+
         function getUsers() {
-            return $http.get('/api/users/')
+            return $http.get(server + 'users/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -105,9 +120,9 @@
                 console.log('XHR Failed for get users.' + error.data);
             }
         }
-        
+
         function getCourses() {
-            return $http.get('/api/courses/')
+            return $http.get(server + 'courses/')
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 
@@ -121,7 +136,7 @@
         }
 
         function login(data) {
-            return $http.post('/api/login/', data)
+            return $http.post(server + 'login/', data)
                 .then(loginOK)
                 .catch(loginFailed);
 
@@ -147,9 +162,9 @@
                 console.log('XHR Failed for logout.' + error.data);
             }
         }
-        
+
         function findBasicInfo(service, text) {
-            return $http.get('/api/'+ service +'/search/', { params: { text: text } })
+            return $http.get(server + service + '/search/', { params: { text: text } })
                 .then(getResponseOK)
                 .catch(getResponseFailed);
 

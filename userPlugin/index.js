@@ -58,6 +58,16 @@ exports.register = function(server, options, next) {
             Handlers.deleteUserHandler(server, request, reply);
         }
     });
+    
+    server.route({
+        method: 'GET',
+        path: '/profile',
+        config: {
+            handler: function (request, reply) {
+                reply( request.auth.credentials);
+            }
+        }
+    });
 
     next();
 };
