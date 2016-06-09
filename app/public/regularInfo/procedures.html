@@ -51,7 +51,7 @@
 </div>
 
 <div class="modal fade" id="modalShow" name="modalShow" tabindex="-1" role="dialog" aria-labelledby="modalShow" data-backdrop="static"
-data-keyboard="false">
+    data-keyboard="false">
     <div class="modal-lg center-block" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,26 +61,20 @@ data-keyboard="false">
                 <form name="editBuildingForm" id="editBuildingForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Nombres</label>
-                            {{vm.building.name}}
+                            <label>Nombres</label> {{vm.building.name}}
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Descripción</label>
-                            {{vm.building.description}}
+                            <label>Descripción</label> {{vm.building.description}}
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Longitud</label>
-                            {{vm.building.longitude}}
-                        </div>
-                    </div>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Latitud</label>
-                            {{vm.building.latitude}}
+                            <label>Pasos</label>
+                            <ul class="list-group" ng-repeat="step in vm.building.steps">
+                                <li class="list-group-item">{step.description}}</li>
+                            </ul>
                         </div>
                     </div>
                 </form>
