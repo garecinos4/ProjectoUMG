@@ -82,6 +82,11 @@ server.register(require('./coursePlugin'), function (err) {
         console.log('Failed loading course plugin');
     }
 });
+server.register(require('./emailPlugin'), function (err) {
+    if (err) {
+        console.log('Failed loading email plugin');
+    }
+});
 
 //Rutas de Paginas
 server.route({

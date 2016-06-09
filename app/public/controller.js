@@ -34,6 +34,23 @@
         };
 
 
+        self.recover = function(){
+           if (self.data.email) {
+                return Service.recover(self.data)
+                    .then(function (result) {
+                        if (result && result.code === 0) {
+                            swal("Recuperación Exitosa!!!", result.message, "success");
+                        } else {
+                            console.log("NO SE PUDO INICIAR SESION");
+                            swal("ERROR!!!", result.message, "error");
+                        }
+                    });
+            } else {
+                swal("Debe ingresar correo y contraseña");
+            }
+        };
+
+
        
 
     }

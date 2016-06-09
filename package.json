@@ -12,6 +12,7 @@
     "hapi": "^8.8.1",
     "hapi-auth-cookie": "^3.1.0",
     "hapi-mongo-models": "^2.2.0",
-    "mongodb": "^2.0.45"
+    "mongodb": "^2.0.45",
+    "nodemailer": "^2.4.2"
   }
 }
