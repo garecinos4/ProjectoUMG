@@ -39,7 +39,7 @@
                         <div class="col-md-1 text-danger">{{$index + 1}}</div>
                         <div class="col-md-8 text-primary">{{building.description}}</div>
                         <div class="col-md-2 text-primary">
-                            <button class="btn btn-warning" title="showDetails" ng-click="vm.building = building" data-toggle="modal" data-target="#modalShow">
+                            <button class="btn btn-warning" title="showDetails" ng-click="vm.editBuilding(building)" data-toggle="modal" data-target="#modalShow">
                                 <span class="glyphicon glyphicon-zoom-in"></span>
                             </button>
                         </div>
@@ -51,7 +51,7 @@
 </div>
 
 <div class="modal fade" id="modalShow" name="modalShow" tabindex="-1" role="dialog" aria-labelledby="modalShow" data-backdrop="static"
-data-keyboard="false">
+    data-keyboard="false">
     <div class="modal-lg center-block" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,30 +61,26 @@ data-keyboard="false">
                 <form name="editBuildingForm" id="editBuildingForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Nombres</label>
-                            {{vm.building.name}}
+                            <label>Nombres</label> {{vm.building.name}}
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Descripción</label>
-                            {{vm.building.description}}
+                            <label>Descripción</label> {{vm.building.description}}
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Longitud</label>
-                            {{vm.building.longitude}}
+                            <label>Longitud</label> {{vm.building.longitude}}
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Latitud</label>
-                            {{vm.building.latitude}}
+                            <label>Latitud</label> {{vm.building.latitude}}
                         </div>
                     </div>
                 </form>
-                <!--div id="map-canvas" name="map-canvas" style="height: 390px; max-width: 870px; margin: 0; padding: 5px;" class="container"></div-->
+                <div id="map-canvas" name="map-canvas" style="height: 390px; max-width: 870px; margin: 0; padding: 5px;" class="container"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

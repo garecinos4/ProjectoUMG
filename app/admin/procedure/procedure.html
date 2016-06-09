@@ -1,95 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>UMG VIRTUAL</title>
-        <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
-        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-        <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="/assets/css/colors.css" rel="stylesheet">
-        <link href="/assets/css/bootstrap/bootstrap-toggle.min.css" rel="stylesheet">
-        <!-- Custom Fonts -->
-        <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/assets/css/loader.css" type="text/css" />
-        <link rel="stylesheet" href="/assets/css/xeditable.css" />
-        <link rel="stylesheet" href="/assets/css/sweetalert.css" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UMG VIRTUAL</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/assets/css/colors.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap/bootstrap-toggle.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/css/loader.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/xeditable.css" />
+    <link rel="stylesheet" href="/assets/css/sweetalert.css" />
 
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
                     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
                     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
                 <![endif]-->
-    </head>
+</head>
 
-    <body ng-app="app" ng-controller="Procedure as vm">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar list-group">
-                    <div class="sidebar-nav">
-                        <div class="navbar navbar-default" role="navigation">
-                            <div class="navbar-header  page-scroll">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<body ng-app="app" ng-controller="Procedure as vm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar list-group">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header  page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a id="page-top" class="visible-xs">
-                                    <span class="navbar-brand">Menú</span>
-                                </a>
-                            </div>
-                            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="#/"><i class="fa fa-building fa-fw"></i> Catalogo</a></li>
-                                    <li><a href="#add"><i class="fa fa-plus-circle fa-fw"></i> Crear nuevo</a></li>
-                                    <li><a href="#dashboard"><i class="fa fa-tachometer fa-fw"></i> Menú</a></li>
-                                    <li><a href="" ng-click="vm.logout()"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
+                            <a id="page-top" class="visible-xs">
+                                <span class="navbar-brand">Menú</span>
+                            </a>
+                        </div>
+                        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#/"><i class="fa fa-building fa-fw"></i> Catalogo</a></li>
+                                <li><a href="#add"><i class="fa fa-plus-circle fa-fw"></i> Crear nuevo</a></li>
+                                <li><a href="#dashboard"><i class="fa fa-tachometer fa-fw"></i> Menú</a></li>
+                                <li><a href="" ng-click="vm.logout()"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div ng-view class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <!--The menu´s view -->
-                </div>
+            </div>
+            <div ng-view class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <!--The menu´s view -->
             </div>
         </div>
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-        <div class="scroll-top page-scroll visible-xs visble-sm">
-            <a class="btn btn-primary" ng-click="vm.gotoTop();">
-                <i class="fa fa-chevron-up"></i>
-            </a>
-        </div>
-          <!--<div class="loader" ng-show="vm.showModal">Creando/assets.</div>-->
+    </div>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" ng-click="vm.gotoTop();">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+    <!--<div class="loader" ng-show="vm.showModal">Creando/assets.</div>-->
 
-        <!-- jQuery -->
-        <script src="/assets/lib/jquery.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="/assets/lib/bootstrap/bootstrap.min.js"></script>
-        <script src="/assets/lib/bootstrap/bootstrap-toggle.min.js"></script>
-        <script src="/assets/lib/freelancer.js"></script>
-        <script src="/assets/lib/sweetalert.min.js"></script>
-        <!-- Custom Angular -->
-        <script src="/assets/lib/angular.js"></script>
-        <script src="/assets/lib/angular-modules/angular-route.min.js"></script>
-        <script src="/assets/lib/angular-modules/angular-resource.min.js"></script>
-        <script src="/assets/lib/xeditable.min.js"></script>
-        <!-- Custom Apps -->
-        <script src="/admin/procedure/app.module.js"></script>
-        <script src="/admin/procedure/route-config.js"></script>
-        <script src="/admin/procedure/controller.js"></script>
-        <script src="/admin/procedure/views/list.controller.js"></script>
-        <script src="/admin/procedure/views/form.controller.js"></script>
-        <script src="/admin/procedure/services.js"></script>
-        <script src="/admin/services.js"></script>
-    </body>
+    <!-- jQuery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/lib/bootstrap/bootstrap-toggle.min.js"></script>
+    <script src="/assets/lib/freelancer.js"></script>
+    <script src="/assets/lib/sweetalert.min.js"></script>
+    <script src="/assets/lib/qrcode.js"></script>
+
+    <!-- Custom Angular -->
+    <script src="/assets/lib/angular.js"></script>
+    <script src="/assets/lib/angular-modules/angular-route.min.js"></script>
+    <script src="/assets/lib/angular-modules/angular-resource.min.js"></script>
+    <script src="/assets/lib/xeditable.min.js"></script>
+    <!-- Custom Apps -->
+    <script src="/admin/procedure/app.module.js"></script>
+    <script src="/admin/procedure/route-config.js"></script>
+    <script src="/admin/procedure/controller.js"></script>
+    <script src="/admin/procedure/views/list.controller.js"></script>
+    <script src="/admin/procedure/views/form.controller.js"></script>
+    <script src="/admin/procedure/services.js"></script>
+    <script src="/admin/services.js"></script>
+</body>
 
 </html>

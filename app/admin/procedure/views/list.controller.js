@@ -29,6 +29,20 @@
         getBuildings();
         /** Incova a la función para cargar los salones. */
         getRooms();
+        
+        
+        self.QRgenerator = function (building) {
+            $('#qrcode').empty();
+            new QRCode(document.getElementById("qrcode"), "http://localhost:8080/app/basicInfo/searchInfo.html#/procedures/" + building.name);
+
+        };
+
+        self.print = function () {
+           window.print();
+           
+        };
+
+        
 
         /**
         * Definición de la función para cargar

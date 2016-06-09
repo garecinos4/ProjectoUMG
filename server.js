@@ -10,6 +10,8 @@ var server = new Hapi.Server();
 //Crear conexion
 server.connection({
     host: '104.236.120.91',
+    //host: 'localhost',
+    //port: 8080,
     port: 80,
     routes: { cors: true }
 });
@@ -20,6 +22,7 @@ var plugin = {
     options: {
         mongodb: {
             url: 'mongodb://mongo:27017/Project',
+            //url: 'mongodb://localhost:27017/Project',
             options: {}
         },
         autoIndex: false,
