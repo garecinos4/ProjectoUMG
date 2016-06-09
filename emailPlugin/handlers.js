@@ -18,8 +18,6 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
 
 var mail = {};
 
-
-
 Handlers.emailHandler = function (server, request, reply) {
 var email = request.payload.email;
     mail = {
@@ -29,7 +27,6 @@ var email = request.payload.email;
         text: "Este correo contiene la nueva contraseña para iniciar sesion en el sistema. contraseña: umg123",
         html: "Este correo contiene la nueva contraseña para iniciar sesion en el sistema. contraseña: <b>umg123</b>"
     };
-
 
     smtpTransport.sendMail(mail, function (error, response) {
         if (error) {
@@ -41,7 +38,7 @@ var email = request.payload.email;
         smtpTransport.close();
     });
 
-    
+
     var filter = {};
     filter.email = email;
 
@@ -67,7 +64,6 @@ var email = request.payload.email;
             user.password = 'umg123';
             _id = user._id;
             delete user._id;
-
 
             User.findByIdAndUpdate(_id, user, function (err, results) {
                 if (err) {
