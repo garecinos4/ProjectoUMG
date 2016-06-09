@@ -8,7 +8,8 @@
 
         return {
             login: login,
-            logout: logout
+            logout: logout,
+            recover: recover
         };
 
         function login(data) {
@@ -34,6 +35,18 @@
             }
             function logoutFailed(error) {
                 console.log('XHR Failed for logout.' + error.data);
+            }
+        }
+
+        function recover(data) {
+            return $http.post('/api/recover/', data)
+                .then(logoutOK)
+                .catch(logoutFailed);
+            function logoutOK(response) {
+                return response.data;
+            }
+            function logoutFailed(error) {
+                console.log('XHR Failed for recover password.' + error.data);
             }
         }
 

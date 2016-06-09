@@ -1,7 +1,7 @@
 var Handlers = {};
 
 //Metodos  payload post params / query query params / params path params
-Handlers.loginHandler = function(server, request, reply) {
+Handlers.loginHandler = function (server, request, reply) {
     var email = request.payload.email;
     var password = request.payload.password;
     var User = server.plugins['hapi-mongo-models'].User;
@@ -12,7 +12,7 @@ Handlers.loginHandler = function(server, request, reply) {
     filter.email = email;
 
 
-    User.find(filter, function(err, results) {
+    User.find(filter, function (err, results) {
         if (err || !results[0]) {
             response = {
                 code: 1,
@@ -22,8 +22,8 @@ Handlers.loginHandler = function(server, request, reply) {
             return reply(response);
             //return reply(err);
         }
-        console.log(results);
-        
+        //console.log(results);
+
         if (results[0].password != password) {
             response = {
                 code: 999,
@@ -45,7 +45,7 @@ Handlers.loginHandler = function(server, request, reply) {
 }
 
 
-Handlers.logoutHandler = function(server, request, reply) {
+Handlers.logoutHandler = function (server, request, reply) {
     request.auth.session.clear();
     response = {
         code: 0,
@@ -56,7 +56,7 @@ Handlers.logoutHandler = function(server, request, reply) {
 };
 
 
-Handlers.showUsersHandler = function(server, request, reply) {
+Handlers.showUsersHandler = function (server, request, reply) {
     //Cargar el modelo User cargado en el plugin
     var User = server.plugins['hapi-mongo-models'].User;
     var filter = {};
@@ -65,7 +65,7 @@ Handlers.showUsersHandler = function(server, request, reply) {
     if (request.query.email) {
         filter.email = request.query.email;
     }
-    User.find(filter, function(err, results) {
+    User.find(filter, function (err, results) {
         var response = {};
 
         if (err) {
@@ -82,17 +82,19 @@ Handlers.showUsersHandler = function(server, request, reply) {
             message: '',
             data: results
         };
+        delete response.data.password;
+        request.auth.session.set(response.data);
         return reply(response);
     });
 }
 
-Handlers.createUserHandler = function(server, request, reply) {
+Handlers.createUserHandler = function (server, request, reply) {
     var User = server.plugins['hapi-mongo-models'].User;
     var response = {};
     var user = {};
     user = request.payload;
-            
-    User.insertOne(user, function(err, results) {
+
+    User.insertOne(user, function (err, results) {
         if (err) {
             response = {
                 code: 1,
@@ -112,14 +114,14 @@ Handlers.createUserHandler = function(server, request, reply) {
     });
 }
 
-Handlers.updateUserHandler = function(server, request, reply) {
+Handlers.updateUserHandler = function (server, request, reply) {
     var _id = request.params.id;
     var User = server.plugins['hapi-mongo-models'].User;
     var response = {};
     var user = {};
     user = request.payload;
     delete user._id;
-    User.findByIdAndUpdate(_id, user, function(err, results) {
+    User.findByIdAndUpdate(_id, user, function (err, results) {
         if (err) {
             response = {
                 code: 1,
@@ -139,12 +141,12 @@ Handlers.updateUserHandler = function(server, request, reply) {
     });
 }
 
-Handlers.deleteUserHandler = function(server, request, reply) {
+Handlers.deleteUserHandler = function (server, request, reply) {
     var _id = request.params.id;
     var User = server.plugins['hapi-mongo-models'].User;
     var response = {};
-           
-    User.findByIdAndDelete(_id, function(err, results) {
+
+    User.findByIdAndDelete(_id, function (err, results) {
         if (err) {
             response = {
                 code: 1,
