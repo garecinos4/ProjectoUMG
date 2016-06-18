@@ -4,7 +4,7 @@
         .factory('BuildingServices', BuildingServices);
 
     BuildingServices.$inject = ['$http'];
-    var server = 'http://104.236.120.91/api/';
+    var server = 'http://kuakcity.com/api/';
 
     function BuildingServices($http) {
         return {
