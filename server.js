@@ -9,7 +9,7 @@ var server = new Hapi.Server();
 
 //Crear conexion
 server.connection({
-    host: '104.236.120.91',
+    host: 'kuakcity.com',
     //host: 'localhost',
     //port: 8080,
     port: 80,
